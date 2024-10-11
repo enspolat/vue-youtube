@@ -1,15 +1,14 @@
-<template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
-</template>
+<script setup lang="ts">
+import { useBreakPoints } from './BreakPoints'
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+const { breakpoints, width } = useBreakPoints()
+</script>
+
+<template>
+  <div v-if="breakpoints.sm">Small Screen</div>
+  <div v-if="breakpoints.md">Medium Screen</div>
+  <div v-if="breakpoints.lg">Large Screen</div>
+
+  <p>{{ breakpoints }}</p>
+  <h1>{{ width }}</h1>
+</template>
