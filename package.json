@@ -13,7 +13,12 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@formkit/vue": "^1.6.7",
+    "@supabase/supabase-js": "^2.45.4",
     "ant-design-vue": "^4.2.5",
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "formkit": "^1.6.7",
     "pinia": "^2.1.7",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"

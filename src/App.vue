@@ -1,20 +1,20 @@
 <template>
-  <ul>
-    <li v-for="post in response" :key="post.id">
-      <h2>{{ post.title }}</h2>
-      <p>{{ post.body }}</p>
-    </li>
-  </ul>
+  <layout />
 </template>
-
 <script lang="ts" setup>
-import { useFetch } from './useFetch'
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { defineAsyncComponent } from 'vue'
+import { onMounted } from 'vue'
+import supaBaseClient from '../src/plugin/supaBaseClient'
 
-interface IPost {
-  id: number
-  title: string
-  body: string
-}
+const route = useRoute()
+const layout = ref()
 
-const { response, loading, error } = useFetch<IPost[]>('/posts')
+watch(
+  () => route.meta.layout,
+  (value) => {
+    layout.value = defineAsyncComponent(() => import(`@/views/Layouts/${value}.vue`))
+  }
+)
 </script>
