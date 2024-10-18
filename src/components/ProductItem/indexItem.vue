@@ -21,10 +21,7 @@ import cartService from '@/services/cartService'
 import { useAuthStore } from '@/stores/authStore'
 const authStore = useAuthStore()
 
-defineProps<{
-  product: IProduct
-}>()
-
+defineProps<{ product: IProduct }>()
 const handleAddCart = async (product: IProduct) => {
   await cartService.addCartItem(authStore.userId, product.id)
   alert('ürün başariyla eklendi.')

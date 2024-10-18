@@ -45,12 +45,16 @@ import { UserOutlined } from '@ant-design/icons-vue'
 import { onMounted } from 'vue'
 import categoryService from '@/services/categoryServices'
 import { useAuthStore } from '@/stores/authStore'
+import { useRouter } from 'vue-router'
 
 const authStore = useAuthStore()
 const categories = ref()
 
+const router = useRouter()
+
 const handleLogout = async () => {
   await authStore.logout()
+  router.push('/login')
 }
 
 onMounted(async () => {

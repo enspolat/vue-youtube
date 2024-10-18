@@ -5,6 +5,7 @@ import { useAuthStore } from '@/stores/authStore'
 import CategoryView from '../views/CategoryItem.vue'
 import CartView from '../views/CartBox.vue'
 import LoginView from '../views/LoginVieww.vue'
+import pdfPage from '@/views/pdfPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -53,6 +54,14 @@ const router = createRouter({
       meta: {
         authRequired: true,
         layout: 'MainLayout'
+      }
+    },
+    {
+      path: '/pdfPage',
+      name: 'pdfPage',
+      component: pdfPage,
+      meta: {
+        layout: 'pdfPage'
       }
     }
   ]
